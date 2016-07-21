@@ -9,11 +9,9 @@ possibleCharacters = string.ascii_lowercase + string.digits + string.ascii_upper
 
 target = input("\nEnter your target text: ")
 attemptThis = ''.join(random.choice(possibleCharacters) for i in range(len(target)))
-attemptNext = ''
-
 completed = False
-
 generation = 0
+print()
 
 while completed == False:
 
@@ -32,6 +30,6 @@ while completed == False:
             
     generation += 1
     attemptThis = attemptNext
-    time.sleep(0.125)
+    time.sleep(0.1)
 
 print("\nTarget matched! That took " + str(generation) + " generation(s)\n")
