@@ -5,25 +5,24 @@ import string
 import random
 import time
 
+welcome = "\nWelcome to Text Evolver v1.0.0"
 possibleCharacters = string.ascii_lowercase + string.digits + string.ascii_uppercase + ' .,!?;:'
 
+print(welcome)
 target = input("\n\nEnter your target text: ")
 attemptThis = ''.join(random.choice(possibleCharacters) for i in range(len(target)))
+
 completed = False
 generation = 0
 print()
 
-while completed == False:
-
+while True:
     print(attemptThis)
-
+    if attemptThis == target: break
     attemptNext = ''
-    completed = True
 
     for i in range(len(target)):
-
         if attemptThis[i] != target[i]:
-            completed = False
             attemptNext += random.choice(possibleCharacters)
         else:
             attemptNext += target[i]
@@ -32,5 +31,4 @@ while completed == False:
     attemptThis = attemptNext
     time.sleep(0.05)
 
-time.sleep(0.5)
-print("\nTarget matched! That took " + str(generation) + " generation(s)\n")
+print("\nTarget matched! That took " + str(generation) + " generation/s\n")
